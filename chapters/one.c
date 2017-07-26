@@ -95,6 +95,19 @@ void CountBiggerCharacters() {
     printf("\n\nYou typed in %.0f bigger characters. Wow!\n\n\n", nc);
 }
 
+void CountLines() {
+    int c, nl;
+
+    nl = 0;
+    while ((c = getchar()) != EOF) {
+        /* Character between single quotes -> integer value */
+        if (c == '\n') {
+            ++nl;
+        }
+    }
+    printf("\n\nImpressive! You typed %d lines\n\n\n", nl);
+}
+
 int chapter_one() {
     char verbose = 0;
 
@@ -105,7 +118,8 @@ int chapter_one() {
     // CopyInputToOutputOptimal();
     // CopyInputToOutput();
     // CountCharacters();
-    CountBiggerCharacters();
+    // CountBiggerCharacters();
+    CountLines();
     // PrintEndOfFile();
 
     if (verbose == 1) {

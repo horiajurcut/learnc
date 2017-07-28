@@ -1,4 +1,4 @@
-#include "chapters/one.c"
+#include "chapters/one.h"
 
 int main() {
     /* Call the main functon of each chapter */

@@ -1,9 +1,13 @@
 #include <stdio.h>
+#include "one.h"
 
 /* Here are some symbolic constants */
 #define LOWER 0
 #define UPPER 300
 #define STEP 20
+
+#define IN 1
+#define OUT 0
 
 void PrintSomeRandomString() {
     printf("\n\n");
@@ -108,6 +112,29 @@ void CountLines() {
     printf("\n\nImpressive! You typed %d lines\n\n\n", nl);
 }
 
+void CountWords() {
+    int c, nl, nw, nc, state;
+
+    state = OUT;
+    nl = nw = nc = 0;
+    while ((c = getchar()) != EOF) {
+        ++nc;
+
+        if (c == '\n') {
+            ++nl;
+        }
+
+        if (c == ' ' || c == '\n' || c == '\t') {
+            state = OUT;
+        } else if (state == OUT) {
+            state = IN;
+            ++nw;
+        }
+    }
+
+    printf("\n\n\nLines %d, Words %d, Characters %d\n", nl, nw, nc);
+}
+
 int chapter_one() {
     char verbose = 0;
 
@@ -119,8 +146,9 @@ int chapter_one() {
     // CopyInputToOutput();
     // CountCharacters();
     // CountBiggerCharacters();
-    CountLines();
+    // CountLines();
     // PrintEndOfFile();
+    CountWords();
 
     if (verbose == 1) {
         int celsius = FahrenheitToCelsius(100);

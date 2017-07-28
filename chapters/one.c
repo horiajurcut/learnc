@@ -162,6 +162,17 @@ void CountDigitsWhiteSpaceAndOthers() {
     printf(", white space = %d, other = %d\n", nwhite, nother);
 }
 
+int power(int base, int n) {
+    int i, p;
+
+    p = 1;
+    for (i = 1; i <= n; i++) {
+        p = p * base;
+    }
+
+    return p;
+}
+
 int chapter_one() {
     char verbose = 0;
 
@@ -176,7 +187,9 @@ int chapter_one() {
     // CountLines();
     // PrintEndOfFile();
     // CountWords();
-    CountDigitsWhiteSpaceAndOthers();
+    // CountDigitsWhiteSpaceAndOthers();
+
+    printf("\n\n%d to the power %d of is %d\n\n", 3, 5, power(3, 5));
 
     if (verbose == 1) {
         int celsius = FahrenheitToCelsius(100);

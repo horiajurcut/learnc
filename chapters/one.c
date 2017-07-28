@@ -135,6 +135,33 @@ void CountWords() {
     printf("\n\n\nLines %d, Words %d, Characters %d\n", nl, nw, nc);
 }
 
+void CountDigitsWhiteSpaceAndOthers() {
+    int c, i, nwhite, nother;
+    int ndigit[10];
+
+    nwhite = nother = 0;
+    /* Initialize array elements with 0 */
+    for (i = 0; i < 10; i++) {
+        ndigit[i] = 0;
+    }
+
+    while ((c = getchar()) != EOF) {
+        if (c >= '0' && c <= '9') {
+            ++ndigit[c - '0'];
+        } else if (c == ' ' || c == '\n' || c == '\t') {
+            ++nwhite;
+        } else {
+            ++nother;
+        }
+    }
+
+    printf("\ndigits = ");
+    for (i = 0; i < 10; i++) {
+        printf(" %d", ndigit[i]);
+    }
+    printf(", white space = %d, other = %d\n", nwhite, nother);
+}
+
 int chapter_one() {
     char verbose = 0;
 
@@ -148,7 +175,8 @@ int chapter_one() {
     // CountBiggerCharacters();
     // CountLines();
     // PrintEndOfFile();
-    CountWords();
+    // CountWords();
+    CountDigitsWhiteSpaceAndOthers();
 
     if (verbose == 1) {
         int celsius = FahrenheitToCelsius(100);

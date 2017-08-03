@@ -1,5 +1,6 @@
 #include "one.h"
 #include <stdio.h>
+#include "utils.h"
 
 /* Here are some symbolic constants */
 #define LOWER 0
@@ -188,6 +189,56 @@ int power(int base, int n)
   return p;
 }
 
+/* In C, all function arguments are passed "by value" */
+int powerB(int base, int n)
+{
+  int p;
+
+  for (p = 1; n > 0; --n) {
+    p = p * base;
+  }
+
+  return p;
+}
+// The story is different for arrays
+// By subscripting the value the function can access and alter any element of the array
+
+void RandomComputations(char verbose)
+{
+  if (verbose == 1) {
+    printf("\n\n%d to the power %d of is %d\n\n", 3, 5, power(3, 5));
+
+    int celsius = FahrenheitToCelsius(100);
+    printf("\n\n%6d degrees fahr are equivalent to %6d degrees celsius\n\n\n", 100, celsius);
+
+    float celsiusFloat = FahrenheitToCelsiusFloat(100.0);
+    printf("\n\n%6.2f degrees fahr are equivalent to %6.2f degrees celsius\n\n\n", 100.0,
+           celsiusFloat);
+  }
+}
+
+/* Print the longest line */
+void LongestLine()
+{
+  int len;
+  int max;
+  char line[MAXLINE];
+  char longest[MAXLINE];
+
+  max = 0;
+  while ((len = getline(line, MAXLINE)) > 0) {
+    if (len > max) {
+      max = len;
+      copyline(longest, line);
+    }
+  }
+  // There was a line
+  if (max > 0) {
+    printf("%s\n", longest);
+  }
+  return 0;
+}
+
 int chapter_one()
 {
   char verbose = 0;
@@ -204,17 +255,8 @@ int chapter_one()
   // PrintEndOfFile();
   // CountWords();
   // CountDigitsWhiteSpaceAndOthers();
-
-  printf("\n\n%d to the power %d of is %d\n\n", 3, 5, power(3, 5));
-
-  if (verbose == 1) {
-    int celsius = FahrenheitToCelsius(100);
-    printf("\n\n%6d degrees fahr are equivalent to %6d degrees celsius\n\n\n", 100, celsius);
-
-    float celsiusFloat = FahrenheitToCelsiusFloat(100.0);
-    printf("\n\n%6.2f degrees fahr are equivalent to %6.2f degrees celsius\n\n\n", 100.0,
-           celsiusFloat);
-  }
+  // RandomComputations(verbose);
+  LongestLine();
 
   return 0;
 }

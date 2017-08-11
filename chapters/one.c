@@ -226,17 +226,16 @@ void LongestLine()
   char longest[MAXLINE];
 
   max = 0;
-  while ((len = getline(line, MAXLINE)) > 0) {
+  while ((len = getline1(line, MAXLINE)) > 0) {
     if (len > max) {
       max = len;
-      copyline(longest, line);
+      copyline1(longest, line);
     }
   }
   // There was a line
   if (max > 0) {
     printf("%s\n", longest);
   }
-  return 0;
 }
 
 int chapter_one()

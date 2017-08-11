@@ -7,6 +7,6 @@ include_directories( chapters )
 
 # Basic test app
 set( APP_SRC main.c )
-set( APP_SRC ${APP_SRC} chapters/one.c)
+set( APP_SRC ${APP_SRC} chapters/one.c chapters/utils.c chapters/scope.c)
 
 add_executable( app ${APP_SRC} )

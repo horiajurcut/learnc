@@ -2,5 +2,5 @@
 
 #define MAXLINE 1000
 
-int getline(char line[], int maxline);
-void copyline(char to[], char from[]);
+int getline1(char line[], int maxline);
+void copyline1(char to[], char from[]);

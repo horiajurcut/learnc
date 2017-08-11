@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* Read a line into a char array and return the length */
-int getline(char line[], int maxline)
+int getline1(char line[], int maxline)
 {
   int c, i;
 
@@ -21,7 +21,7 @@ int getline(char line[], int maxline)
 }
 
 /* Copy "from" into "to" - assumes "to" is big enough */
-void copyline(char to[], char from[])
+void copyline1(char to[], char from[])
 {
   int i = 0;
 
